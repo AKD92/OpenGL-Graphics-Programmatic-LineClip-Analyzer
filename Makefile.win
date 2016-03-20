@@ -1,0 +1,37 @@
+# Project: 423 Homework 05 (Programmatic LineClipping Analyzer)
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = obj/clip_rectangle_management.o obj/driver_lineclip_analyzer.o obj/midpoint_line_algorithm.o obj/utility_routines.o
+LINKOBJ  = obj/clip_rectangle_management.o obj/driver_lineclip_analyzer.o obj/midpoint_line_algorithm.o obj/utility_routines.o
+LIBS     = -L"C:/Dev-Cpp/MinGW32/lib" -L"C:/Dev-Cpp/MinGW32/mingw32/lib" -static-libstdc++ -static-libgcc -L"G:/Ashish Files/documents/My Bookself/Books on IUP GUI Programming (C)/IUP MinGW Libs/iup-3.17_Win32_mingw4_lib" -L"G:/Ashish Files/documents/Dev C++ Project Files/Linked List/lib" -mwindows -liup -liupgl -lgdi32 -lcomdlg32 -lcomctl32 -luuid -loleaut32 -lole32 -lopengl32 -lglu32 -llinkedlist -s
+INCS     = -I"C:/Dev-Cpp/MinGW32/include" -I"C:/Dev-Cpp/MinGW32/mingw32/include" -I"C:/Dev-Cpp/MinGW32/lib/gcc/mingw32/4.8.1/include" -I"G:/Ashish Files/documents/My Bookself/Books on IUP GUI Programming (C)/IUP MinGW Libs/iup-3.17_Win32_mingw4_lib/include" -I"G:/Ashish Files/documents/Dev C++ Project Files/Linked List/src"
+CXXINCS  = -I"C:/Dev-Cpp/MinGW32/include" -I"C:/Dev-Cpp/MinGW32/mingw32/include" -I"C:/Dev-Cpp/MinGW32/lib/gcc/mingw32/4.8.1/include" -I"C:/Dev-Cpp/MinGW32/lib/gcc/mingw32/4.8.1/include/c++" -I"G:/Ashish Files/documents/My Bookself/Books on IUP GUI Programming (C)/IUP MinGW Libs/iup-3.17_Win32_mingw4_lib/include" -I"G:/Ashish Files/documents/Dev C++ Project Files/Linked List/src"
+BIN      = bin/423_Homework_05_(Programmatic_LineClipping_Analyzer).exe
+CXXFLAGS = $(CXXINCS) -ansi -std=c99 -Wall
+CFLAGS   = $(INCS) -ansi -std=c99 -Wall
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+obj/clip_rectangle_management.o: src/clip_rectangle_management.c
+	$(CC) -c src/clip_rectangle_management.c -o obj/clip_rectangle_management.o $(CFLAGS)
+
+obj/driver_lineclip_analyzer.o: src/driver_lineclip_analyzer.c
+	$(CC) -c src/driver_lineclip_analyzer.c -o obj/driver_lineclip_analyzer.o $(CFLAGS)
+
+obj/midpoint_line_algorithm.o: src/midpoint_line_algorithm.c
+	$(CC) -c src/midpoint_line_algorithm.c -o obj/midpoint_line_algorithm.o $(CFLAGS)
+
+obj/utility_routines.o: src/utility_routines.c
+	$(CC) -c src/utility_routines.c -o obj/utility_routines.o $(CFLAGS)
